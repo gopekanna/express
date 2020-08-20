@@ -17,4 +17,28 @@ const User = new Schema({
     collection: 'users'
 });
 
-module.exports = mongoose.model('User', User);
+const Feed = new Schema({
+  FloorAddress: {
+    type: String
+  },
+  BeaconAddress: {
+    type: String
+  },
+  RepeaterAddress: {
+      type: String
+  },
+  RSSI: {
+    type: String
+  },
+  GatewayAddress: {
+    type: String
+  }
+},{
+    collection: 'tags'
+});
+
+// module.exports = mongoose.model('User', User);
+const userSchema = mongoose.model('User', User);
+const feedSchema = mongoose.model('Feed', Feed);
+
+module.exports = { User: userSchema, Feed: feedSchema }
